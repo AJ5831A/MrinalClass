@@ -1,6 +1,17 @@
 import "./Navbar.css";
+import { useState } from "react";
 
 function Navbar() {
+  const [isloggedin , setLoggedIn] = useState(false)
+
+  function handleLogin(){
+    setLoggedIn(true)
+  }
+
+  function Logout(){
+    setLoggedIn(false)
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-logo">Amazon</div>
@@ -20,9 +31,13 @@ function Navbar() {
           Cart
         </a>
 
-        <button  className="nav-login-button">
+        {isloggedin ? (<div>Mark</div>) : (<button  className="nav-login-button" onClick={handleLogin}>
           Sign in
-        </button>
+        </button>)}
+
+        <button onClick={Logout}>Logout</button>
+
+        
       </div>
     </div>
   );
