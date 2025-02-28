@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import Navbar from "./components/Navbar";
 import Forms from "./components/Forms";
 import Ue from "./components/Ue";
+import GetData from "./components/GetData";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Card title='Sunglasses' description='Rayban Glasses' />
  */}
 
-        <Ue />
+        <GetData/>
       
       {/* <Counter /> */}
       {/* <Forms /> */}
