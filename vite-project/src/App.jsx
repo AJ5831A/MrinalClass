@@ -1,16 +1,26 @@
+import { useState } from 'react'
 import './App.css'
-import Navbar from './Components/Navbar.jsx'
-import Cards from './Components/Cards.jsx'
+
 
 function App() {
 
+  const [quote , setQuote] = useState('');
+  const [author , setAuthor] = useState('');
+  const getQuote = async () =>{
+      const response = await fetch('https://api.quotable.io/random')
+      const data = await response.json()
+      //console.log(data)
+      setQuote(data.content)
+      setAuthor(data.author)
+      // console.log(quote)
+      // console.log(author)
+  }
+
   return (
     <>
-      <h1>Hello There!</h1>
-      <Navbar/>
-      <Cards title="Card 1" description="This is the description of Card 1."/>
-      <Cards title="Card 2" description="This is the description of Card 2."/>
-      <Cards title="Card 3" description="This is the description of Card 3."/>
+      <p>{quote}</p>
+      <p>{author}</p>
+      <button onClick={getQuote}>Get Quote</button>
     </>
   )
 }
